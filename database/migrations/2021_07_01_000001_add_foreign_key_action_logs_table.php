@@ -27,7 +27,8 @@ class AddForeignKeyActionLogsTable extends Migration
     public function down()
     {
         Schema::table('action_logs', function (Blueprint $table) {
-            $table->dropForeign(['user_id', 'post_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['post_id']);
         });
     }
 }
