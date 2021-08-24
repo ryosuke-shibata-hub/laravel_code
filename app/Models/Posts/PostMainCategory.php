@@ -11,4 +11,9 @@ class PostMainCategory extends Model
     protected $fillable = [
         'main_category',
     ];
+
+    public function getLists() {
+        $categories = PostMainCategory::orderBy('id','asc')->pluck('main_category','id');
+        return $categories;
+    }
 }

@@ -1,0 +1,23 @@
+html{
+  color: #5b5b5b;
+}
+
+
+a.bye {
+  display: block;
+  position: absolute;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.3rem;
+  margin-top: 80px;
+  right:20%;
+  height: 35px;
+  width: 150px;
+  background-color: #0075c2;
+
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}

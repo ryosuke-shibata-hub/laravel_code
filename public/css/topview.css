@@ -1,0 +1,186 @@
+a.title {
+  display: block;
+  position: absolute;
+  font-size: 1.5rem;
+  padding-left: 33%;
+  padding-top: 100px;
+  margin-bottom: -100px;
+  color: #5b5b5b;
+  z-index: 1;
+}
+
+a.posts_create {
+  display: block;
+  position: absolute;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.3rem;
+  margin-top: -50px;
+  right: 30%;
+  height: 35px;
+  width: 150px;
+  background-color: #0075c2;
+}
+
+a.favorite_posts {
+  display: block;
+  position: absolute;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.3rem;
+  margin-top: 50px;
+  right:19.5%;
+  height: 35px;
+  width: 300px;
+  background-color: #0075c2;
+}
+
+a.my_posts {
+  display: block;
+  position: absolute;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.3rem;
+  margin-top: 110px;
+  right:19.5%;
+  height: 35px;
+  width: 300px;
+  background-color: #0075c2;
+}
+
+div.posts {
+  display: block;
+  position: absolute;
+  padding-top: 180px;
+  padding-left: 30%;
+}
+
+div.users_posts{
+  display: block;
+
+  border: 1px solid #000000;
+  width: 400px;
+  height: 150px;
+  margin-bottom: 10px;
+
+}
+
+div.view_count {
+  font-size: 1rem;
+  padding-left: 340px;
+  padding-top: 15px;
+}
+
+div.username {
+  font-size: 1rem;
+  padding-left: 20px;
+  margin-top: -10px;
+}
+
+div.updated_at {
+  font-size: 0.7rem;
+  padding-left: 150px;
+  margin-top: -20px;
+}
+
+div.post {
+  font-size: 1rem;
+  padding-left: 20px;
+  margin-top: 30px;
+  color: red;
+}
+
+a.post-view {
+  display: block;
+  color: #5b5b5b;
+
+}
+
+div.comment {
+  padding-left: 200px;
+  font-size: 0.8rem;
+  margin-top: -15px;
+}
+
+div.sub_category {
+  padding-left: 20px;
+  padding-top: 30px;
+  font-size: 0.8rem;
+}
+
+p.category {
+  display: flex;
+  padding-left: 900px;
+  font-size: 1.7rem;
+  color: #5b5b5b;
+  padding-top: 300px;
+}
+
+p.main_categories {
+  display: flex;
+  flex-direction: column;
+  padding-left: 900px;
+  font-size:1.3rem;
+
+  color: #5b5b5b;
+}
+
+input.search {
+  background-color: #eeeeee;
+  border: solid 1px #aaaaaa;
+  display: block;
+  position: absolute;
+  text-align: center;
+  right: 26.5%;
+  height: 35px;
+  width: 200px;
+  margin-top: 5px;
+
+
+}
+
+input[type="submit"]{
+  background-color: #0075c2;
+  color: #fff;
+  display: block;
+  position: absolute;
+  right: 20%;
+  width: 80px;
+  height: 45px;
+  border: none;
+}
+
+.side-bar {
+  display: block;
+  padding-top: 250px;
+
+}
+
+div.admin {
+  padding-top: 40px;
+}
+.create_category {
+  display: block;
+  position: absolute;
+  text-align: center;
+  margin-top: -20px;
+  font-size: 1.3rem;
+  margin-top: -90px;
+  padding-top: 10px;
+  right: 19.5%;
+  height: 35px;
+  width: 300px;
+  background-color: #ff0000;
+
+}
+
+div.likes {
+  position: absolute;
+  display: block;
+  padding-left: 330px;
+  margin-top: -30px;
+}
+
+i.fas {
+  color: red;
+}

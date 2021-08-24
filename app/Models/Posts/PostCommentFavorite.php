@@ -12,4 +12,5 @@ class PostCommentFavorite extends Model
         'user_id',
         'post_comment_id',
     ];
+
 }

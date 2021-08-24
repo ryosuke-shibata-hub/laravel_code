@@ -16,4 +16,18 @@ class User extends Authenticatable
         'password',
         'admin_role',
     ];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
+    public function posts() {
+
+        return $this->hasMany(Post::class);
+    }
+
+    public function PostFavorite() {
+
+        return $this->hasMany(PostFavorite::class);
+    }
 }

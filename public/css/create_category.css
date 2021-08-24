@@ -1,0 +1,102 @@
+a.title {
+  display: block;
+  position: absolute;
+  font-size: 1.5rem;
+  padding-left: 33%;
+  padding-top: 100px;
+  margin-bottom: -100px;
+  color: #5b5b5b;
+  z-index: 1;
+}
+
+p.category_title {
+  display: block;
+  position: absolute;
+  padding-left: 480px;
+  padding-top: 200px;
+  font-size: 1.3rem;
+}
+
+input.main_form{
+  background-color: #eeeeee;
+  margin-top: 280px;
+  margin-left: 450px;
+  height: 30px;
+  width: 450px;
+  border: solid 1px #aaaaaa;
+  outline: none;
+}
+
+input[type="submit"] {
+  position: relative;
+  display: block;
+  color: #fff;
+  background-color: #dc143c;
+  margin-left: 450px;
+  margin-top: 10px;
+  width:450px;
+  height: 40px;
+  border: none;
+  z-index: 1;
+}
+
+p.sub_category_title {
+  display: block;
+  position: absolute;
+  padding-left: 480px;
+  padding-top: 10px;
+  font-size: 1.3rem;
+}
+
+input.sub_form {
+  background-color: #eeeeee;
+  margin-top: 100px;
+  margin-left: 450px;
+  height: 30px;
+  width: 450px;
+  border: solid 1px #aaaaaa;
+  outline: none;
+}
+
+
+input[type="submit"].sub_category_submit {
+  position: relative;
+  display: block;
+  color: #fff;
+  background-color: #dc143c;
+  margin-left: 450px;
+  margin-top: 10px;
+  width:450px;
+  height: 40px;
+  border: none;
+  z-index: 1;
+}
+
+p.category {
+  display: block;
+  position: absolute;
+  padding-left: 480px;
+  padding-top: 10px;
+  font-size: 1.3rem;
+}
+
+select.form-control{
+  background-color: #eeeeee;
+  margin-left: 450px;
+  margin-top: 100px;
+  height: 30px;
+  width: 450px;
+  border: solid 1px #aaaaaa;
+}
+
+p.categories {
+  display: block;
+  position: absolute;
+  padding-left: 1000px;
+  margin-top: -500px;
+  font-size: 1.3rem;
+}
+
+a.back {
+  color: #000000;
+}

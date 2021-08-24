@@ -8,6 +8,8 @@ class Post extends Model
 {
     protected $table = 'posts';
 
+
+
     protected $fillable = [
         'user_id',
         'post_sub_category_id',
@@ -16,5 +18,24 @@ class Post extends Model
         'title',
         'post',
         'event_at',
+
+
     ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
+    public function user() {
+
+        return $this->belongsTo(user::class);
+    }
+
+    public function PostFavorite() {
+
+        return $this->hasMany(PostFavorite::class);
+    }
+
+
 }

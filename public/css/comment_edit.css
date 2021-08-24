@@ -1,0 +1,68 @@
+html {
+  color: #5b5b5b;
+}
+
+h2 {
+  display: block;
+  position: absolute;
+  font-size: 1.5rem;
+  padding-left: 30%;
+  margin-top: 100px;
+
+}
+a.back {
+  color: #000000;
+}
+
+div.comment_content {
+
+  padding-top: 200px;
+}
+
+p.comment_title {
+  display: block;
+  position: absolute;
+  padding-left: 450px;
+  padding-top: 10px;
+  font-size: 1.3rem;
+}
+
+input.comment_form {
+  background-color: #eeeeee;
+  margin-top: 80px;
+  margin-left: 450px;
+  height:  130px;
+  width: 450px;
+  border: solid 1px #aaaaaa;
+  outline: none;
+}
+
+a.btn-delete {
+  position: relative;
+  display: block;
+  color: #fff;
+  background-color: #dc143c;
+  margin-left: 450px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-left: 210px;
+  width:240px;
+  height: 25px;
+  border: none;
+  outline: none;
+  z-index: 1;
+}
+
+input[type='submit'] {
+  position: relative;
+  display: block;
+  color: #fff;
+  background-color: #dc143c;
+  margin-left: 450px;
+  margin-top: 20px;
+  width:450px;
+  height: 30px;
+  border: none;
+  outline: none;
+  z-index: 1;
+}
