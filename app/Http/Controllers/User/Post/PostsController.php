@@ -70,6 +70,7 @@ class PostsController extends Controller
         session(['count' => "$count"]);
 
 
+
         return view('login.topview',['main_categories'=>$main_categories,'sub_categories'=>$sub_categories,'search'=>$search,'user'=>$user,'count'=>$count]);
     }
 
@@ -114,4 +115,6 @@ class PostsController extends Controller
 
     //     return response()->json($json);
     // }
+
+
 }

@@ -46,7 +46,7 @@
         </td>
       </div>
       <div class="likes">
-        <i class="fas fa-heart"></i>
+
         <td>
 {{--
           @if($like_model->like_exist(Auth::user()->id,$post->id))

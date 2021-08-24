@@ -47,8 +47,6 @@ route::get('/comment_edit/{id}','User\Post\PostCommentsController@comment_edit')
 route::get('/comment_update/{id}','User\Post\PostCommentsController@comment_update')->name('comment_update');
 route::get('/comment_delete/{id}','User\Post\PostCommentsController@comment_delete');
 
-// route::post('/top','User\Post\PostsController@like');
-
 Route::middleware(['auth','can:isAdmin'])->group(function(){
 route::get('create_category','Admin\Post\PostMainCategoriesController@create_category');
 route::post('create_category','Admin\Post\PostMainCategoriesController@create_main_category');

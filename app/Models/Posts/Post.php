@@ -27,15 +27,7 @@ class Post extends Model
         'updated_at',
     ];
 
-    public function user() {
 
-        return $this->belongsTo(user::class);
-    }
-
-    public function PostFavorite() {
-
-        return $this->hasMany(PostFavorite::class);
-    }
 
 
 }
