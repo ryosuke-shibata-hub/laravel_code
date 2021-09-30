@@ -11,6 +11,7 @@
     <a class="back" href="/top">もどる</a>
 </div>
 @foreach($list as $list)
+
 {!! Form::open(['url'=>'/comment_update/{id}','method'=>'get']) !!}
 
 <div class="comment_content">

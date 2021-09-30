@@ -13,7 +13,7 @@ class post_main_categories extends Seeder
     public function run()
     {
         //
-        for ($i = 1; $i <= 2; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             PostMainCategory::create([
                 'id'=> $i,
                 'main_category' => 'メイン'.$i,

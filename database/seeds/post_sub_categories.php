@@ -14,15 +14,15 @@ class post_sub_categories extends Seeder
     {
         //
 
-        // for ($i = 4; $i <= 2; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             PostSubCategory::create([
-                'id'=> 6,
-                'post_main_category_id' => 5,
-                'sub_category' => 'てっってって',
+                'id'=> $i,
+                'post_main_category_id' => $i,
+                'sub_category' => 'てっってって'.$i,
                 'created_at' =>now(),
                 'updated_at' => now(),
                 'deleted_at' =>now(),
             ]);
-        // }
+        }
     }
 }

@@ -78,6 +78,7 @@ div.comment_username {
 div.comment_user {
   display: block;
   margin-top: 350px;
+  padding-left: 400px;
 }
 
 div.comment_date {
@@ -89,12 +90,13 @@ div.comment_date {
 
 div.user_comment {
   padding-top: 50px;
+  padding-bottom: 10px;
   padding-left: 60px;
 }
 
 div.comment_like {
   padding-left: 720px;
-  margin-top: -15px;
+  margin-top: 25px;
   font-size: 25px;
 }
 
@@ -108,6 +110,7 @@ div.comment_posts {
 
 div.comment_form_text {
   padding-top: 150px;
+  padding-left: 425px;
 }
 
 input[type=text] {
@@ -117,7 +120,7 @@ input[type=text] {
 }
 
 input[type=submit] {
-  margin-left: 600px;
+  margin-left: 1000px;
   margin-top: 30px;
   background-color:  #0075c2;
   color: #fff;
@@ -147,9 +150,82 @@ a.edit_comment {
   position: absolute;
   display: block;
   margin-left: 600px;
-  margin-top: 50px;
+  margin-top: 30px;
   padding-left: 70px;
   padding-top: 10px;
   height: 30px;
   width:100px;
+}
+
+div.likes {
+  position: absolute;
+  display: block;
+  padding-left: 700px;
+  margin-top: -20px;
+  z-index: 1;
+
+}
+
+.liked {
+  color: red;
+}
+.likes {
+  color:#000000;
+  border:none;
+}
+
+.like-counter {
+  display: block;
+  padding-left: 25px;
+  margin-top: -15px;
+}
+
+
+/* a.toggle_wish {
+  color: red;
+}
+
+.class.unlike {
+  color:#000000;
+}
+
+a.btn {
+  color: red;
+}
+
+p.unlike {
+  margin-top: 5px;
+  z-index: 1;
+}
+
+p.like {
+  margin-top: 5px;
+  z-index: 1;
+} */
+
+div.comment_like {
+
+  position: absolute;
+  display: block;
+  padding-left: 700px;
+  margin-top: -40px;
+  z-index: 1;
+
+}
+
+a.toggle_wish_comment {
+  color: red;
+
+}
+
+.subcategory_block {
+  display: block;
+  background-color: #0075c2;
+  color: #fff;
+  width: 150px;
+  height:20px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 3px;
 }

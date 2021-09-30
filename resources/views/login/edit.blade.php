@@ -26,8 +26,8 @@
     @foreach($categories as $id => $name)
         <option value="{{ $id }}">{{ $name }}</option>
     @endforeach
-</select>
- @foreach($list as $list)
+  </select>
+ {{-- @foreach($list as $list) --}}
   </div>
   <div class="title">
     <div class="title_title">
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  @endforeach
+  {{-- @endforeach --}}
 </div>
 
 @endsection

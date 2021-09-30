@@ -22,6 +22,16 @@ class UsersTableSeeder extends Seeder
 
             ]);
 
+        //     for ($i = 1; $i <= 5; $i++) {
+
+        //     User::create([
+        //         'username' => 'testUser'.$i,
+        //         'email' => 'user@address.com'.$i,
+        //         'password' => Hash::make('123456789'),
+        //         'admin_role' => '10',
+        //     ]);
+
+        // }
 
     }
 }

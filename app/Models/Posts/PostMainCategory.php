@@ -16,4 +16,9 @@ class PostMainCategory extends Model
         $categories = PostMainCategory::orderBy('id','asc')->pluck('main_category','id');
         return $categories;
     }
+
+    public function postSubCategory() {
+        return $this->hasMany(PostSubCategory::class);
+    }
+
 }

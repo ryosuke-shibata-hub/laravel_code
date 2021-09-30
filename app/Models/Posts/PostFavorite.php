@@ -4,6 +4,8 @@ namespace App\Models\Posts;
 
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Users\User;
+use App\Models\Posts\post;
 
 class PostFavorite extends Model
 {
@@ -15,7 +17,13 @@ class PostFavorite extends Model
     ];
     public $timestamps = false;
 
+    public function user() {
 
+        return $this->belongsTo(User::class);
+    }
 
+    public function post() {
+        return $this->belongsTo(Post::class);
+    }
 
 }

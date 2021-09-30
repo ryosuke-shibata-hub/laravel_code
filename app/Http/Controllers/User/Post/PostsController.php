@@ -8,7 +8,10 @@ use App\Models\Posts\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Users\User;
 use App\Models\Posts\PostSubCategory;
+use App\Models\Posts\PostMainCategory;
+use App\Models\posts\PostComment;
 use App\Models\Posts\PostFavorite;
+use App\Models\ActionLogs\ActionLog;
 use Illuminate\Support\Facades\DB;
 
 
@@ -18,24 +21,36 @@ class PostsController extends Controller
 
     public function top(Request $request){
 
-
-
         $user = auth()->user();
 
-        $main_categories = \DB::table('post_main_categories')
-            ->get();
-        $sub_categories = \DB::table('post_sub_categories')
-            ->get();
+        $main = PostMainCategory::with('PostSubCategory:post_main_category_id,sub_category')
+        ->get();
 
         $search = $request->input('search_post');
+
+        $search_posts = $request->input('my_post');
+
+        $search_my_favorite = $request->input('my_favorite');
+
+        $category_lists = $request->input('select_subcategory');
+
+        $category = PostMainCategory::with('subcategory');
+
 
         $query = post::query();
 
         if(!empty($search)) {
-            $query = \DB::table('posts')
-            ->where('title','like',"%{$search}%")
+            $query = post::where('title','like',"%{$search}%")
             ->orWhere('post','like',"%{$search}%")
+            ->orWhere('username','like',"%{$search}%")
             ->orWhere('sub_category','=',"{$search}");
+
+        }elseif(!empty($search_posts)) {
+            $query = post::where('posts.user_id','=',Auth::user()->id);
+
+        }elseif(!empty($search_my_favorite)) {
+
+        $query = post::whereHas('likes');
 
         }
 
@@ -43,36 +58,16 @@ class PostsController extends Controller
         ->leftJoin('post_sub_categories', 'posts.post_sub_category_id','=','post_sub_categories.id')
         ->leftJoin('users', 'users.id', '=' , 'posts.user_id')
         ->leftJoin('post_comments','posts.id','=','post_comments.post_id')
+        ->select('post_sub_category_id','posts.id','username','title','posts.event_at','sub_category',DB::raw("count(post_comments.post_id) as count"))
         ->orderBy('posts.event_at','desc','created_at','desc')
-        ->select('posts.id','username','title','posts.event_at','sub_category',DB::raw("count(post_comments.post_id) as count"))
         ->groupBy('posts.id')
+        ->withCount('likes')->orderBy('id','desc')
         ->get();
 
-        // $data=[];
 
-        // $posts = post::withCount('PostFavorite')->orderBy('created_at','desc')->paginate(5);
-        // $like_model = new PostFavorite;
-
-        // $data = [
-        //     'posts' => $posts,
-        //     'like_model' => $like_model,
-        // ];
-
-        // $post_id = $request->$id;
-
-        if(session()->has('count')){
-            $count = session('count');
-        }else{
-            $count = 0;
-        }
-
-        $count++;
-        session(['count' => "$count"]);
-
-
-
-        return view('login.topview',['main_categories'=>$main_categories,'sub_categories'=>$sub_categories,'search'=>$search,'user'=>$user,'count'=>$count]);
+        return view('login.topview',['search'=>$search,'user'=>$user,'category'=>$category,'main'=>$main,]);
     }
+
 
     public function my_post(){
 
@@ -88,33 +83,6 @@ class PostsController extends Controller
         return view('login.my_post',['list'=>$list]);
     }
 
-
-    // public function like(Request $request) {
-
-
-
-    //     $id = Auth::user()->id;
-    //     $post_id = $request->post_id;
-    //     $like = new PostFavorite;
-    //     $post = Post::findOrFail($post_id);
-
-    //     if ($like->like_exist($id,$post_id)) {
-    //         $like = PostFavorite::where('post_id',$post_id)->where('user_id',$id)->delete();
-
-    //     }else{
-    //         $like = new PostFavorite;
-    //         $like->post_id = $request->post_id;
-    //         $like->user_id = Auth::user()->id;
-    //         $like->save();
-    //     }
-
-    //    $postLikesCount = $post->loadCount('PostFavorite')->likes_count;
-    //     $json = [
-    //         'postLikeCount' => $postLikeCount,
-    //     ];
-
-    //     return response()->json($json);
-    // }
 
 
 }

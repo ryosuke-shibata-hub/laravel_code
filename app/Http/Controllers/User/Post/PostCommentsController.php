@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Posts\PostComment;
 use App\Models\posts\PostSubCategory;
 use Illuminate\Support\Facades\Validator;
+use App\Models\ActionLogs\ActionLog;
 use Illuminate\Support\Facades\DB;
 use App\Models\Users\User;
+use App\Models\Posts\Post;
 use Auth;
+use Carbon\Carbon;
 
 class PostCommentsController extends Controller
 {
@@ -18,15 +21,15 @@ class PostCommentsController extends Controller
 
     public function comment(Request $request,PostComment $PostComment,$id) {
 
-
         $user = auth()->user();
 
-        $list = \DB::table('posts')
-        ->where('posts.id',$id)
+        $list = Post::where('posts.id',$id)
         ->leftJoin('users', 'users.id', '=' , 'posts.user_id')
         ->leftJoin('post_comments','users.id','=','post_comments.user_id')
-        ->get();
-
+        ->leftJoin('post_sub_categories','posts.post_sub_category_id','=','post_sub_categories.id')
+        ->select('posts.id','username','title','posts.event_at','sub_category','posts.user_id')
+        ->withCount('likes')->orderBy('id','desc')
+        ->first();
 
 
 
@@ -37,27 +40,32 @@ class PostCommentsController extends Controller
         ->groupBy('posts.id')
         ->get();
 
-        $comment = \DB::table('post_comments')
-
-            ->where('post_comments.post_id',$id )
+        $comment = PostComment::where('post_comments.post_id',$id )
             ->leftJoin('users','post_comments.user_id','=','users.id')
             ->orderBy('post_comments.created_at','desc')
-            ->select('post_comments.id','users.username','post_comments.event_at','post_comments.comment','post_comments.user_id')
+            ->select('post_comments.id','users.username','post_comments.event_at','post_comments.comment','post_comments.user_id','post_comments.post_id')
+            ->withCount('comment_likes')->orderBy('id','desc')
+            // ->first();
             ->get();
 
+            $date = carbon::now();
 
-        $post_id = $request->$id;
-
-        if(session()->has('count')){
-            $count = session('count');
-        }else{
-            $count = 0;
+        if($id !== null) {
+            \DB::table('action_logs')->insert([
+                'post_id' => $id,
+                'user_id' => Auth::user()->id,
+                'created_at' => $date,
+                'event_at' => $date,
+                'updated_at' => $date
+            ]);
         }
 
-        $count++;
-        session(['count' => "$count"]);
+        $count = \DB::table('action_logs')
+            ->where('post_id',$id)
+            ->count();
 
-        return view('login.post_comment',['list'=>$list,'comment'=>$comment,'id'=>$id,'comment_count'=>$comment_count,'count'=>$count,'user'=>$user]);
+
+        return view('login.post_comment',['list'=>$list,'comment'=>$comment,'id'=>$id,'comment_count'=>$comment_count,'user'=>$user,'count'=>$count]);
     }
 
     public function create_comment(Request $request,PostComment $PostComment,$id) {
@@ -88,7 +96,7 @@ class PostCommentsController extends Controller
         ->leftJoin('users', 'users.id', '=' , 'posts.user_id')
         ->leftJoin('post_comments','users.id','=','post_comments.user_id')
         ->select('posts.id','posts.title','posts.post')
-        ->get();
+        ->first();
 
 
 

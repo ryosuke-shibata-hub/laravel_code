@@ -2,8 +2,8 @@ a.title {
   display: block;
   position: absolute;
   font-size: 1.5rem;
-  padding-left: 33%;
-  padding-top: 100px;
+  margin-left: 33%;
+  margin-top: 100px;
   margin-bottom: -100px;
   color: #5b5b5b;
   z-index: 1;
@@ -22,7 +22,7 @@ a.posts_create {
   background-color: #0075c2;
 }
 
-a.favorite_posts {
+div.favorite_posts {
   display: block;
   position: absolute;
   text-align: center;
@@ -35,7 +35,13 @@ a.favorite_posts {
   background-color: #0075c2;
 }
 
-a.my_posts {
+input[class="search_my_favorite"] {
+  color: #ffff;
+  background-color: #0075c2;
+  border: none;
+}
+
+div.my_posts {
   display: block;
   position: absolute;
   text-align: center;
@@ -46,6 +52,12 @@ a.my_posts {
   height: 35px;
   width: 300px;
   background-color: #0075c2;
+}
+
+input[class="search_my_posts"]{
+  color: #ffff;
+  background-color: #0075c2;
+  border: none;
 }
 
 div.posts {
@@ -67,7 +79,7 @@ div.users_posts{
 
 div.view_count {
   font-size: 1rem;
-  padding-left: 340px;
+  padding-left: 320px;
   padding-top: 15px;
 }
 
@@ -91,7 +103,7 @@ div.post {
 }
 
 a.post-view {
-  display: block;
+  display: inline-block;
   color: #5b5b5b;
 
 }
@@ -99,14 +111,27 @@ a.post-view {
 div.comment {
   padding-left: 200px;
   font-size: 0.8rem;
-  margin-top: -15px;
+  margin-top: -30px;
 }
 
 div.sub_category {
+  display: block;
   padding-left: 20px;
-  padding-top: 30px;
+  padding-top: 15px;
   font-size: 0.8rem;
 }
+
+p.subcategory_block {
+  display: block;
+  background-color: #0075c2;
+  color: #fff;
+  width: 100px;
+  height:20px;
+  text-align: center;
+  padding-top: 8px;
+  border-radius: 3px;
+}
+
 
 p.category {
   display: flex;
@@ -114,6 +139,7 @@ p.category {
   font-size: 1.7rem;
   color: #5b5b5b;
   padding-top: 300px;
+
 }
 
 p.main_categories {
@@ -139,7 +165,7 @@ input.search {
 
 }
 
-input[type="submit"]{
+input[class="search_submit"] {
   background-color: #0075c2;
   color: #fff;
   display: block;
@@ -175,12 +201,67 @@ div.admin {
 }
 
 div.likes {
+
   position: absolute;
   display: block;
-  padding-left: 330px;
-  margin-top: -30px;
+  padding-left: 350px;
+  margin-top: -25px;
+  z-index: 1;
+
 }
 
-i.fas {
+a.toggle_wish {
   color: red;
+}
+
+/* .class.unlike {
+  color:#000000;
+}
+
+a.btn {
+  color: red;
+}
+
+span.badge {
+  color: #000000;
+}
+
+p.unlike {
+  margin-top: 5px;
+  z-index: 1;
+}
+
+p.like {
+  margin-top: 5px;
+  z-index: 1;
+} */
+
+
+/* .like_count {
+  color: #000000;
+} */
+
+div.category_main_category {
+  margin-left: 63%;
+  padding-top: 10px;
+}
+
+div.category_sub_category{
+  margin-left: 65%;
+
+}
+
+.sub_category_submit {
+  border: none;
+  background-color: #ffffff;
+  color: #5b5b5b;
+}
+
+
+.liked {
+  color: red;
+}
+.likes {
+  color:#000000;
+  border:none;
 }

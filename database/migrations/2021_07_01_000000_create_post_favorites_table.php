@@ -15,6 +15,7 @@ class CreatePostFavoritesTable extends Migration
             $table->timestamp('created_at')->useCurrent()->comment('登録日時');
             $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'))->comment('更新日時');
             $table->softDeletes()->comment('削除日時');
+
         });
     }
 

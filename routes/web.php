@@ -40,12 +40,19 @@ Route::get('/logout', 'Auth\Login\LoginController@logout');
 Route::get('/post/{id}','User\Post\PostCommentsController@comment');
 Route::post('/post/{id}','User\Post\PostCommentsController@create_comment');
 
+route::get('subcategory/{id}','User\Post\PostsController@subcategory_search');
+
 route::get('/edit/{id}','User\Post\PostCommentsController@edit');
 route::get('/update/{id}','User\Post\PostCommentsController@update')->name('update');
 route::get('/delete/{id}','User\Post\PostCommentsController@delete');
 route::get('/comment_edit/{id}','User\Post\PostCommentsController@comment_edit')->name('comment_edit');
 route::get('/comment_update/{id}','User\Post\PostCommentsController@comment_update')->name('comment_update');
 route::get('/comment_delete/{id}','User\Post\PostCommentsController@comment_delete');
+
+// route::post('/like_product','User\Post\PostFavoritesController@like_product');
+route::post('/like_product','User\Post\PostFavoritesController@like');
+
+route::post('/like_product_comment','User\Post\PostCommentFavoritesController@post_comment_like');
 
 Route::middleware(['auth','can:isAdmin'])->group(function(){
 route::get('create_category','Admin\Post\PostMainCategoriesController@create_category');

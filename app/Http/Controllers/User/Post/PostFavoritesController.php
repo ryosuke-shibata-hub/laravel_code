@@ -10,22 +10,27 @@ use Illuminate\Support\Facades\Auth;
 
 class PostFavoritesController extends Controller
 {
+    public function like(Request $request) {
+        $user_id = Auth::user()->id;
+        $post_id = $request->post_id;
+        $liked = PostFavorite::where('user_id',$user_id)->where('post_id',$post_id)->first();
 
-    // public function like(Post $post, Request $request) {
-    //     $like = new PostFavorite();
-    //     $like->post_id=$post->id;
-    //     $like->user_id=Auth::user()->id;
-    //     $like->save();
+        if(!$liked) {
+            $like = new PostFavorite;
+            $like->post_id = $post_id;
+            $like->user_id = $user_id;
+            $like->save();
+        }else{
+            PostFavorite::where('post_id',$post_id)->where('user_id',$user_id)
+            ->delete();
+        }
 
-    //     return back();
-    // }
+        $post_likes_count = post::withCount('likes')->findOrFail($post_id)->likes_count;
 
-    // public function unlike(Post $post, Request $request) {
-    //     $user=Auth::user()->id;
-    //     $like=PostFavorite::where('post_id',$post->id)->where('user_id',$user)->first();
-    //     $like->delete();
+        $param = [
+            'post_likes_count' => $post_likes_count,
+        ];
 
-    //     return back();
-    // }
-
+        return response()->json($param);
+    }
 }

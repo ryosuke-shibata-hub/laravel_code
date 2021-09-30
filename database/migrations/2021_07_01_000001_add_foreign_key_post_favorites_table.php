@@ -11,12 +11,14 @@ class AddForeignKeyPostFavoritesTable extends Migration
         Schema::table('post_favorites', function (Blueprint $table) {
 
             $table->foreign('user_id')
+
                 ->references('id')
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
             $table->foreign('post_id')
+
                 ->references('id')
                 ->on('posts')
                 ->onUpdate('cascade')

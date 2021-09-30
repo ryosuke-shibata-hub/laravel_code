@@ -3,12 +3,14 @@
 namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Posts\post;
+use Auth;
 
 class PostComment extends Model
 {
     protected $table = 'post_comments';
 
-    public function user(){
+    public function users(){
         return $this->belongsTo(User::class);
     }
 
@@ -20,6 +22,10 @@ class PostComment extends Model
         'comment',
         'event_at',
     ];
+
+    public function posts() {
+      return $this->belongsTo(post::class);
+    }
 
     public function commentStore(Int $user_id,Array $data) {
 
@@ -33,5 +39,29 @@ class PostComment extends Model
         return;
     }
 
+    public function isLikedBy_comment($user): bool {
+      return PostCommentFavorite::where('user_id',$user->id)->where('post_comment_id',$this->id)->first() !==null;
+    }
+
+
+    public function comment_likes() {
+       return $this->hasMany(PostCommentFavorite::class);
+    }
+
+//     public function is_liked_by_auth_user()
+//   {
+//     $id = Auth::id();
+
+//     $likers = array();
+//     foreach($this->comment_likes as $like) {
+//       array_push($likers, $like->user_id);
+//     }
+
+//     if (in_array($id, $likers)) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+// }
 
 }

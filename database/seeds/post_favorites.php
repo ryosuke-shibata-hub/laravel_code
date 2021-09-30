@@ -13,7 +13,7 @@ class post_favorites extends Seeder
     public function run()
     {
         //
-        for ($i = 1; $i <= 2; $i++){
+        for ($i = 1; $i <= 5; $i++){
             PostFavorite::create([
                 'id' => $i,
                 'user_id' => $i,
